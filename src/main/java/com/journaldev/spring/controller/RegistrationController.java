@@ -10,6 +10,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class RegistrationController {
   // Map to store employees, ideally we should use database
   Map<Integer, Registration> empData = new HashMap<Integer, Registration>();
 
+  @CrossOrigin(origins = "*")
   @RequestMapping(value = RegistrationRestURIConstants.GET_REGISTRATION, method = RequestMethod.GET)
   public @ResponseBody Registration getRegistration(@PathVariable("id") int empId) {
     logger.info("Start getRegistration. ID=" + empId);
